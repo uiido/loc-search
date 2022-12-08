@@ -15,23 +15,30 @@
     <div class="row min-vh-100">
         <div class="col-12 col-md-4 min-vh-100">
             <form>
-                <fieldset disabled>
-                    <legend>Disabled fieldset example</legend>
+                <fieldset enabled>
+                    <legend>Enabled fieldset example</legend>
                     <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Disabled input</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                        <label for="textInput" class="form-label">input</label>
+                        <input type="text" id="textInput" class="form-control" placeholder="input">
                     </div>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                        <select id="disabledSelect" class="form-select">
-                            <option>Disabled select</option>
+                        <label for="select" class="form-label">select menu</label>
+                        <select id="select" class="form-select">
+                            <option>maps</option>
+                            <option>audio</option>
+                            <option>photos</option>
+                            <option>manuscripts</option>
+                            <option>newspapers</option>
+                            <option>film-and-videos</option>
+                            <option>notated-music</option>
+                            <option>websites</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                            <label class="form-check-label" for="disabledFieldsetCheck">
-                                Can't check this
+                            <input class="form-check-input" type="checkbox" id="fieldsetCheck" enabled>
+                            <label class="form-check-label" for="fieldsetCheck">
+                                can check this
                             </label>
                         </div>
                     </div>
@@ -113,5 +120,8 @@
         </div>
     </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="./script.js"></script>
 
 </html>
