@@ -2,10 +2,25 @@ $(".btn-primary").click(function (event) {
     event.preventDefault();
     var input = $("#textInput").val();
     var format = $("#format").val();
-    'https://www.loc.gov/' + format + '/?q=' + input + '&fo=json';
+    var url = 'https://www.loc.gov/' + format + '/?q=' + input + '&fo=json';
+    console.log(url);
 
-}
-)
-// https://www.loc.gov/search/?q=baseball&fo=json
+    fetch(url)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
+                    displayRepos(data, user);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect to GitHub');
+        });
+
+})
 
 // 'https://www.loc.gov/search/?q=' + q + '&fo=json';
