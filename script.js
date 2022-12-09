@@ -1,3 +1,5 @@
+var cardContainer = $(".card-container");
+
 $(".btn-primary").click(function (event) {
     event.preventDefault();
     var input = $("#textInput").val();
@@ -11,15 +13,35 @@ $(".btn-primary").click(function (event) {
                 console.log(response);
                 response.json().then(function (data) {
                     console.log(data);
+                    for (let i = 0; i < data.results.length; i++) {
+                        generateCard(data.results[i]);
+                    }
                 });
             } else {
                 alert('Error: ' + response.statusText);
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to GitHub');
+            alert('No results found!');
         });
 
 })
 
-// 'https://www.loc.gov/search/?q=' + q + '&fo=json';
+function generateCard(cardData) {
+    var card = $("<div>").addClass("card");
+    var cardBody = $("<div>").addClass("card-body");
+    var cardTitle = $("<div>").addClass("card-title").text(cardData.title);
+    // date - card subttitle
+    // info - card-text
+    var cardText = $("<div").addClass("card-text").text(cardData.title);
+    // button
+    cardBody.append(cardTitle);
+    cardText.append(cardBody);
+    card.append(cardBody);
+    cardContainer.append(card);
+}
+
+// change the alert
+// add a subtitle
+// card contents
+// card link
